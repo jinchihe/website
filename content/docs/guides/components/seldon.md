@@ -1,13 +1,7 @@
 +++
 title = "Seldon Serving"
-description = "Seldon Serving"
-weight = 10
-toc = true
-bref= "Model serving using Seldon"
-[menu]
-[menu.docs]
-  parent = "components"
-  weight = 40
+description = "Model serving using Seldon"
+weight = 40
 +++
 
 ## Serve a model using Seldon
@@ -29,6 +23,12 @@ If you wish to use Seldon's previous v1alpha1 version of its CRD you need to set
 ```
 ks param set seldon seldonVersion 0.1.8
 ks generate seldon seldon
+```
+
+Deploy seldon cluster manager:
+
+```
+ks apply ${KF_ENV} -c seldon
 ```
 
 ### Seldon Deployment Graphs

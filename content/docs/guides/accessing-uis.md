@@ -1,14 +1,11 @@
 +++
 title = "Accessing Kubeflow UIs"
-description = "Accessing Kubeflow UIs"
-weight = 10
-toc = true
-bref = "Kubeflow includes a number of different web UIs. This document provides instructions for how to connect to them."
-
-[menu.docs]
-  parent = "guides"
-  weight = 15
+description = "How to access the Kubeflow web UIs"
+weight = 15
 +++
+
+Kubeflow includes a number of web UIs. This document provides instructions on
+how to connect to them.
 
 ## Accessing Kubeflow Web UIs
 
@@ -43,12 +40,12 @@ different services.
 
 ## Using Kubectl and port-forwarding
 
-You can use the following command to setup port forwarding to one of the 
-[Ambassador](https://www.getambassador.io/) pods that provides the reverse proxy.
+You can use the following command to setup port forwarding to the
+[Ambassador](https://www.getambassador.io/) service that provides the reverse proxy.
 
 ```
 export NAMESPACE=kubeflow
-kubectl port-forward -n ${NAMESPACE}  `kubectl get pods -n ${NAMESPACE} --selector=service=ambassador -o jsonpath='{.items[0].metadata.name}'` 8080:80
+kubectl port-forward svc/ambassador -n ${NAMESPACE} 8080:80
 ```
 
 You can then access the central navigation dashboard at
